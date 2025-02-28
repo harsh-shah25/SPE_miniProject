@@ -7,6 +7,8 @@ public class Calculator {
 
     public static void start() {
         while (true) {
+            System.out.println("Press enter to continue");
+            sc.nextLine();
             System.out.println("Select an operation:");
             System.out.println("1. Square Root (√x)");
             System.out.println("2. Factorial (x!)");
