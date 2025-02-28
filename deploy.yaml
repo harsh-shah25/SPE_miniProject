@@ -1,0 +1,28 @@
+---
+- name: Pull and run image from Docker Hub
+  hosts: localhost
+  remote_user: harsh-shah
+  #become: true
+  vars:
+    - DOCKER_IMAGE_NAME: "shahharsh25/calculator"
+  tasks:
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        
+    - name: Pull Docker Image
+      docker_image:
+        name: "{{ DOCKER_IMAGE_NAME }}"
+        source: pull
+      register: docker_pull_result
+
+    - name: Display Docker Pull Result
+      debug:
+        var: docker_pull_result
+    
+    - name: Stop and remove container
+      shell: docker stop calculator && docker rm calculator || true
+
+    - name: Running container
+      shell: docker run -it -d --name calculator "{{ DOCKER_IMAGE_NAME }}"
