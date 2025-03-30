@@ -17,14 +17,7 @@ pipeline {
                 }
             }
         }
-        stage('Test Java project') {
-            steps {
-                script {
-                    // Build Docker image
-                    sh 'mvn clean test -Dtest=CalculatorTest'
-                }
-            }
-        }
+        
         stage('Build Jar File') {
             steps {
                 script {
@@ -33,6 +26,16 @@ pipeline {
                 }
             }
         }
+
+        stage('Test Java project') {
+            steps {
+                script {
+                    // Build Docker image
+                    sh 'mvn clean test -Dtest=CalculatorTest'
+                }
+            }
+        }
+        
         stage('Build Docker Image') {
             steps {
                 script {
