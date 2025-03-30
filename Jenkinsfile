@@ -31,11 +31,11 @@ pipeline {
             steps {
                 script {
                     // Build Docker image
-                    sh 'mvn clean test -Dtest=CalculatorTest'
+                    sh 'mvn test'
                 }
             }
         }
-        
+
         stage('Build Docker Image') {
             steps {
                 script {
