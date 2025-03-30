@@ -17,7 +17,7 @@ public class Calculator {
             System.out.print("Enter your choice: ");
 
             int choice = sc.nextInt();
-
+//just for testing
             if (choice == 5) {
                 System.out.println("Exiting calculator. Goodbye!");
                 break;
