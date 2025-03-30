@@ -9,10 +9,10 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+        stage('Cloning the repository') {
             steps {
                 script {
-                    // Checkout the code from the GitHub repository
+                    // Clone the code from the GitHub repository
                     git branch: 'main', url: "${GITHUB_REPO_URL}"
                 }
             }
